@@ -12,7 +12,7 @@ target_dir=/root/service/$project_name  #目标集群机器的路径
 jump_dir=/opt/user/release #跳板机存放jar包和脚本的目录
 app_name=${jar_url##*/} #获取jar包名称
 jvm_param='-Xms1536m -Xmx1536m -Xmn700m -XX:PermSize=100m -XX:MaxPermSize=100m -XX:MetaspaceSize=100m  -Xloggc:/home/logs/appauth/gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
-
+#jar_url来源于参数化构建过程-》string parameter
 echo "准备下载jar包，名字："${jar_url##*/}
 rm ${jar_url##*/}  #删除目录下的jar包，避免jar包为release时jenkins不覆盖老包的问题
 wget $jar_url   #根据jar包地址下载
